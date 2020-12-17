@@ -48,7 +48,7 @@ class Perceptron(inputDimension: Int, initLearningRate: Double, val classOne: St
 
 	private def validateCompleteInputVector (inputVector: Array[Double]): Array[Double] = {
 		if (inputVector.length != dimension) throw InvalidInputVector()
-		val finalVector: Array[Double] = Array[Double](dimension + 1)
+		val finalVector: Array[Double] = new Array[Double](dimension + 1)
 		finalVector.update(0, 1) // Bias
 		for (index <- 1 to dimension) {
 			finalVector.update(index, inputVector.apply(index - 1))
@@ -69,7 +69,7 @@ class Perceptron(inputDimension: Int, initLearningRate: Double, val classOne: St
 	}
 
 	private def initWeights (dimension: Int): Array[Double] = {
-		val weights: Array[Double] = Array[Double](dimension + 1)
+		val weights: Array[Double] = new Array[Double](dimension + 1)
 		for (index <- 0 to dimension) {
 			weights.update(index, defaultWeight)
 		}
